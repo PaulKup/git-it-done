@@ -31,10 +31,14 @@ var displayRepos = function (repos, searchTerm) {
     }
     repoContainerEl.textContent = "";
     repoSearchTerm.textContent = searchTerm;
+    console.log(repos);
 
     for (var i = 0; i < repos.length; i++) {
-        var repoEl = document.createElement("div");
+        //format repo name
+        var repoName = repos[i].full_name;
+        var repoEl = document.createElement("a");
         repoEl.classList = "list-item flex-row justify-space-between align-center";
+        repoEl.setAttribute("href", "./assets/html/single-repo.html?repo=" + repoName);
         var titleEl = document.createElement("span");
         titleEl.textContent = repos[i].full_name;
         var statusEl = document.createElement("span");
